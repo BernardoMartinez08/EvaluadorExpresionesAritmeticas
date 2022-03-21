@@ -26,9 +26,10 @@ public class EvaluadorExpresionesAritmeticas {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        String entrada = "";
+        String entrada = "D://Documentos//entrada";
         ExprLexer lexer = new ExprLexer(new ANTLRFileStream(entrada));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         ExprParser parser = new ExprParser(tokens);
@@ -36,6 +37,7 @@ public class EvaluadorExpresionesAritmeticas {
         ExprParser.ProgContext tree = parser.prog();
         
         ExprBaseVisitor visitor = new ExprBaseVisitor();
+        
         visitor.visit(tree);
         
         
